@@ -3,11 +3,13 @@
 MakeFlaggable is an extension for building a user-centric flagging system for Rails 3 applications.
 It currently supports ActiveRecord models.
 
+Special thanks to medihack[https://github.com/medihack/make_flaggable] for providing this awesome gem!
+
 == Installation
 
 add MakeFlaggable to your Gemfile
 
-  gem 'make_flaggable'
+  gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
 
 afterwards execute
 
