@@ -5,10 +5,10 @@ Gem::Specification.new do |s|
   s.name        = "make_flaggable"
   s.version     = MakeFlaggable::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Kai Schlamp"]
-  s.email       = ["schlamp@gmx.de"]
-  s.homepage    = "http://github.com/medihack/make_flaggable"
-  s.summary     = "Rails 3 flagging extension"
+  s.authors     = ["Kai Schlamp", "Eric Berry"]
+  s.email       = ["schlamp@gmx.de", "cavneb@gmail.com"]
+  s.homepage    = "http://github.com/cavneb/make_flaggable_as"
+  s.summary     = "Rails 3 flagging extension with named flags"
   s.description = "A user-centric flagging extension for Rails 3 applications."
 
   s.required_rubygems_version = ">= 1.3.6"

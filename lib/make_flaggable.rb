@@ -13,13 +13,15 @@ module MakeFlaggable
   end
 
   # Specify a model as flaggable.
-  # Optional option :once_per_flagger when only on flag per flagger is allowed.
+  # Required options flag names to allow flagging of with those flag types
   #
   # Example:
   # class Article < ActiveRecord::Base
-  #   make_flaggable :once_per_flagger => true
+  #   make_flaggable :inappropriate, :spam, :favorite
   # end
-  def make_flaggable
+  def make_flaggable(*flags)
+    raise MakeFlaggable::Exceptions::MissingFlagsError.new if flags.empty?
+    define_method(:available_flags) { flags.map(&:to_sym) }
     include Flaggable
   end
 
@@ -29,8 +31,7 @@ module MakeFlaggable
   # class User < ActiveRecord::Base
   #   make_flagger
   # end
-  def make_flagger(options = {})
-    define_method(:flaggable_options) { options }
+  def make_flagger
     include Flagger
   end
 end

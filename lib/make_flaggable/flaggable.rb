@@ -11,13 +11,25 @@ module MakeFlaggable
         true
       end
     end
-
-    def flagged?
-      flaggings.count > 0
+    
+    def flaggings(flag = nil)
+      if flag.nil?
+        flaggings
+      else
+        flaggings.where(:flag => flag.to_s)
+      end
     end
 
-    def flagged_by?(flagger)
-      flagger.flagged?(self)
+    def flagged?(flag = nil)
+      if flag.nil?
+        flaggings.count > 0
+      else
+        flaggings.where(:flag => flag.to_s).count > 0
+      end
+    end
+
+    def flagged_by?(flagger, flag)
+      flagger.flagged?(self, flag)
     end
   end
 end
